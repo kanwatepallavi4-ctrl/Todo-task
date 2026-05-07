@@ -18,11 +18,12 @@
 
 
 const todoForm =document.getElementById('todoForm'); 
-
 const todoContainer=document.getElementById('todoContainer');
 const todoItemControl= document.getElementById('todoItem');
 const addTodo =document.getElementById('addTodo'); 
 const updateTodo= document.getElementById('updateTodo');
+
+
 
 
 
@@ -70,7 +71,7 @@ let li =document.createElement('li');
 
 let ul =document.querySelector('ul')
        ul.append(li);
-
+todoForm.reset();
 }
 
 
@@ -89,15 +90,17 @@ let removedItem =todoArr.splice(getIndex,1) ;
 
 }
 
+
 let editId ;
+
 
 function onEdit(ele){ 
   editId= ele.closest('li').id; 
   
   let EditObj =todoArr.find(ele=>ele.todoId===editId); 
 
-   //this code shows selected todoItem  on formControl
-   todoItemControl.value =EditObj.todoItem ;
+   //this code shows selected todoItem  on formControl WHICH means it patch the data.......
+   todoItemControl.value = EditObj.todoItem ;
   
    addTodo.classList.add('d-none');
    updateTodo.classList.remove('d-none');
@@ -113,14 +116,14 @@ function onUpdate(){ // this is function defination of onUpdate
     let updateObj ={ 
         todoItem:todoItemControl.value,
         todoId:editId
-    }  
+       }  
 
   let getIndex =todoArr.findIndex(ele=>ele.todoId===updateId); //2 
   //todoArr[2] =updateObj   
   todoArr[getIndex] =updateObj;
 
   
-let li=document.getElementById(updateId)  //This is ddocument object creation method
+let li=document.getElementById(updateId)  //This is document object creation method
     li.querySelector('strong').innerText= updateObj.todoItem //this is single  
     todoForm.reset();
 
@@ -130,7 +133,7 @@ let li=document.getElementById(updateId)  //This is ddocument object creation me
 }
 
 
+updateTodo.addEventListener('click',onUpdate) 
 
 todoForm.addEventListener('submit',ontodoSubmit); 
                          //Event ,  callBackFunction
-updateTodo.addEventListener('click',onUpdate) 
