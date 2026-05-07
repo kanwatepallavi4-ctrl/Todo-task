@@ -9,7 +9,7 @@
                 todoId:'122-asdf-1223-asdf'
             },
  
-            { 
+            {  
                 todoItem:'html',
                 todoId:'asdf122-a13-1223-asdf'
             }
@@ -45,11 +45,11 @@ createArr(todoArr);
 
 function ontodoSubmit(eve){ 
      console.log(eve);
-    eve.preventDefault() //to prevent default value of form .the dafault value is submit
+    eve.preventDefault() //to prevent default value of form. the dafault value is submit
  
   let todo_obj ={ 
      todoItem: todoItemControl.value, 
-     todoId:Date.now().toString()
+     todoId:Date.now().toString() //to create unique ids
   } 
 
   console.log(todo_obj);
