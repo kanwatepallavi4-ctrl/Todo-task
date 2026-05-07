@@ -71,7 +71,9 @@ let li =document.createElement('li');
 
 let ul =document.querySelector('ul')
        ul.append(li);
-todoForm.reset();
+
+
+   todoForm.reset();
 }
 
 
@@ -125,15 +127,15 @@ function onUpdate(){ // this is function defination of onUpdate
   
 let li=document.getElementById(updateId)  //This is document object creation method
     li.querySelector('strong').innerText= updateObj.todoItem //this is single  
+    
+    addTodo.classList.remove('d-none');
+    updateTodo.classList.add('d-none');
+    
     todoForm.reset();
-
-  addTodo.classList.remove('d-none');
-   updateTodo.classList.add('d-none');
-
 }
 
 
-updateTodo.addEventListener('click',onUpdate) 
 
 todoForm.addEventListener('submit',ontodoSubmit); 
                          //Event ,  callBackFunction
+updateTodo.addEventListener('click',onUpdate) 
